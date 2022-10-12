@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FritzBox.Net", "Source\Frit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{AEB9C53A-3108-4B19-B5D2-C6AE95FC50DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{B37A7439-8FCF-4D67-B41E-05275C38179C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FritzBox.Net.Console", "Examples\FritzBox.Net.Console\FritzBox.Net.Console.csproj", "{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +17,6 @@ Global
 		{10EA98B9-5A8A-4878-ADD3-9AD769EE4C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10EA98B9-5A8A-4878-ADD3-9AD769EE4C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10EA98B9-5A8A-4878-ADD3-9AD769EE4C93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +26,5 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{10EA98B9-5A8A-4878-ADD3-9AD769EE4C93} = {AEB9C53A-3108-4B19-B5D2-C6AE95FC50DA}
-		{6F99FCDE-6A67-4901-AC3C-CECCD5D76F59} = {B37A7439-8FCF-4D67-B41E-05275C38179C}
 	EndGlobalSection
 EndGlobal
