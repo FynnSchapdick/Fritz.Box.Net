@@ -20,4 +20,4 @@ services:
     ports:
       - "5560:80"
     networks:
-      - local_home   
+      - local_home

@@ -57,23 +57,40 @@ internal sealed class DeviceSearchService : IDeviceSearchService
 
     public async Task<InternetGatewayDevice> GetDeviceAsync(int? sendCount = null, int? timeout = null, CancellationToken cancellationToken = default)
     {
-        IPAddress? ip = (await Dns.GetHostEntryAsync(Dns.GetHostName(), cancellationToken)).AddressList.FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
-        if (ip is null)
-        {
-            throw new Exception("No Host Found.");
-        }
-        
-        Console.WriteLine(ip);
+        var names = await Dns.GetHostEntryAsync(Dns.GetHostName(), cancellationToken);
 
-        string? rawDeviceResponse = await GetRawDeviceResponse(ip, InternetGatewayDeviceDeviceType, sendCount ?? DefaultSendCount, timeout ?? DefaultReceiveTimeout, cancellationToken);
-        IEnumerable<Dictionary<string, string>> formattedDeviceResponse = GetFormattedDeviceResponses(new[] { rawDeviceResponse });
-        IGrouping<string, InternetGatewayDeviceResponse>? gatewayDevice = GetGroupedInternetGatewayDeviceResponses(formattedDeviceResponse).FirstOrDefault();
-        if (gatewayDevice is null)
+        foreach (var VARIABLE in names.AddressList)
         {
-            throw new Exception("No gateway device found.");
+            Console.WriteLine(VARIABLE);
         }
         
-        return await GetInternetGatewayDeviceAsync(gatewayDevice, cancellationToken);
+        Console.WriteLine("---------------------------------------");
+        
+        foreach (var VARIABLE2 in names.Aliases)
+        {
+            Console.WriteLine(VARIABLE2);
+        }
+        
+        Console.WriteLine("---------------------------------------");
+
+        Console.WriteLine(names.HostName);
+        throw new NotImplementedException();
+        // if (ip is null)
+        // {
+        //     throw new Exception("No Host Found.");
+        // }
+
+
+
+        // string? rawDeviceResponse = await GetRawDeviceResponse(ip, InternetGatewayDeviceDeviceType, sendCount ?? DefaultSendCount, timeout ?? DefaultReceiveTimeout, cancellationToken);
+        // IEnumerable<Dictionary<string, string>> formattedDeviceResponse = GetFormattedDeviceResponses(new[] { rawDeviceResponse });
+        // IGrouping<string, InternetGatewayDeviceResponse>? gatewayDevice = GetGroupedInternetGatewayDeviceResponses(formattedDeviceResponse).FirstOrDefault();
+        // if (gatewayDevice is null)
+        // {
+        //     throw new Exception("No gateway device found.");
+        // }
+        //
+        // return await GetInternetGatewayDeviceAsync(gatewayDevice, cancellationToken);
     }
 
     private static IEnumerable<IGrouping<string, InternetGatewayDeviceResponse>> GetGroupedInternetGatewayDeviceResponses(IEnumerable<Dictionary<string, string>> formattedDeviceResponses)
