@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\ThirdParty\RS.Fritz.Manager.API\RS.Fritz.Manager.API.csproj" />
+      <ProjectReference Include="..\RS.Fritz.Manager.API\RS.Fritz.Manager.API.csproj" />
     </ItemGroup>
 
 </Project>
