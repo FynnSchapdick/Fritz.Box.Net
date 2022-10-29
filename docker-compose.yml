@@ -1,0 +1,14 @@
+services: 
+  fritzExporter:
+    container_name: fritzexporter
+    image: chappy/fritzeporter
+    environment:
+      CollectorConfig__UserName: collect
+      CollectorConfig__Password: b9JtdQkEqdtwkNKcgYgV2f64p82pecWq
+      CollectorConfig__IntervalSeconds: 5
+    build:
+      context: ./
+      dockerfile: Source/Dockerfile
+    ports:
+      - "5560:80"
+    network_mode: "host"
