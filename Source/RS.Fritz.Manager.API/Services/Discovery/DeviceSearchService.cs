@@ -65,6 +65,12 @@ internal sealed class DeviceSearchService : IDeviceSearchService
         
         Console.WriteLine(ip);
         
+        IEnumerable<IPAddress> localAddresses = GetLocalAddresses();
+        foreach (IPAddress address in localAddresses)
+        {
+            Console.WriteLine(address);
+        }
+        
         string? rawDeviceResponse = await GetRawDeviceResponse(ip, InternetGatewayDeviceDeviceType, sendCount ?? DefaultSendCount, timeout ?? DefaultReceiveTimeout, cancellationToken);
         IEnumerable<Dictionary<string, string>> formattedDeviceResponse = GetFormattedDeviceResponses(new[] { rawDeviceResponse });
         IGrouping<string, InternetGatewayDeviceResponse>? gatewayDevice = GetGroupedInternetGatewayDeviceResponses(formattedDeviceResponse).FirstOrDefault();
