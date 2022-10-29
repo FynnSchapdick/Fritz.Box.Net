@@ -6,7 +6,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Source/FritzBoxPrometheusExporter/", "Source/FritzBoxPrometheusExporter/"]
-COPY ["ThirdParty/", "ThirdParty/"]
+COPY ["Source/RS.Fritz.Manager.API/", "Source/RS.Fritz.Manager.API/"]
 WORKDIR "/src/Source/FritzBoxPrometheusExporter"
 RUN dotnet build "FritzBoxPrometheusExporter.csproj" -c Release -o /app/build
 
